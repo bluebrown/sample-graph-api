@@ -4,7 +4,7 @@ export interface IRoom {
     floor: number
     capacity: number
     phone: boolean
-    printer: boolean
+    projector: boolean
 }
 
 
@@ -15,7 +15,7 @@ export const rooms: IRoom[] = [
     floor: 0,
     capacity: 5,
     phone: true,
-    printer: false,
+    projector: false,
   },
   {
     id: 2,
@@ -23,7 +23,23 @@ export const rooms: IRoom[] = [
     floor: 1,
     capacity: 7,
     phone: true,
-    printer: true,
+    projector: true,
+  },
+  {
+    id: 3,
+    name: 'Tollimore',
+    floor: 1,
+    capacity: 4,
+    phone: false,
+    projector: false,
+  },
+  {
+    id: 4,
+    name: 'dopel',
+    floor: 3,
+    capacity: 12,
+    phone: false,
+    projector: true,
   },
 ];
 
