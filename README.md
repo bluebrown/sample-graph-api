@@ -2,8 +2,10 @@
 
 Example api build with typescript exrepss and graphql
 
-## Install
+## Dvelopment
 
 ```shell
 yarn
+yarn start
 ```
+
