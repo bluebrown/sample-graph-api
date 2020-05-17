@@ -19,6 +19,7 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "max-len":"off",
         "require-jsdoc": "off",
         "@typescript-eslint/no-unused-vars": [
             2,

@@ -1,25 +1,25 @@
-import {IRoom, rooms} from './data';
+import {rooms as roomsData} from './data';
 import {compileExpression} from 'filtrex';
-import {filter as _filter} from 'lodash';
+import {filter as _filter, find as _find} from 'lodash';
 
-const getRoom = function(args: any): IRoom {
-  const id = args.id;
-  return rooms.filter((room) => room.id == id)[0];
-};
+function room(_: any, args: any) {
+  return _find(roomsData, (room) => room.id === args.id);
+}
 
-const retrieveRooms = function(args: any): IRoom[] {
-  if (!args.filter) return rooms;
+function rooms(_: any, args: any) {
+  if (!args.filter) return roomsData;
   const filter = compileExpression(args.filter);
-  return _filter(rooms, (room: IRoom) => {
+  return _filter(roomsData, (room) => {
     if (filter(room)) return true;
     return false;
   });
+}
+
+export const resolvers = {
+  Query: {
+    room,
+    rooms,
+  },
 };
 
-export const root = {
-  room: getRoom,
-  rooms: retrieveRooms,
-};
-
-
-export default root;
+export default resolvers;

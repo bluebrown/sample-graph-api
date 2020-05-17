@@ -1,17 +1,8 @@
-const express = require('express');
-const graphqlHTTP = require('express-graphql');
+import {ApolloServer} from 'apollo-server';
+import {resolvers} from './resolver';
+import {typeDefs} from './schema';
 
-import {schema} from './schema';
-import {root} from './resolver';
-
-const app = express();
-
-app.use('/graphql', graphqlHTTP({
-  schema: schema,
-  rootValue: root,
-  graphiql: true,
-}));
-
-app.listen(4000, () => {
-  console.log('Now browse to localhost:4000/graphql');
+const server = new ApolloServer({typeDefs, resolvers});
+server.listen().then(({url}: any) => {
+  console.log(`🚀  Server ready at ${url}`);
 });

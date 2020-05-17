@@ -1,12 +1,11 @@
 export interface IRoom {
-    id: number
-    name: string
-    floor: number
-    capacity: number
-    phone: boolean
-    projector: boolean
+  id: number
+  name: string
+  floor: number
+  capacity: number
+  phone: boolean
+  projector: boolean
 }
-
 
 export const rooms: IRoom[] = [
   {
